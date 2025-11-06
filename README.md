@@ -1,3 +1,6 @@
+
+<img width="500" height="500" alt="TerraCost - AWS Logo (1)" src="https://github.com/user-attachments/assets/98791ca8-e598-4fef-8edc-c9c4544f2526" />
+
 # TerraCost-AWS
 
 An intelligent AWS cost estimation tool that analyzes Terraform plans and provides detailed cost breakdowns using Amazon Bedrock AI.
