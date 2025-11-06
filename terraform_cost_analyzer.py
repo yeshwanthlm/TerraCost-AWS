@@ -2,6 +2,9 @@
 """
 AWS Terraform Cost Analyzer
 A tool to analyze Terraform plans and estimate AWS costs using Bedrock AI
+
+Copyright (c) 2025 Yeshwanth L M
+Licensed under the MIT License. See LICENSE file for details.
 """
 
 import json

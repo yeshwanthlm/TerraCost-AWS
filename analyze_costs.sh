@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # AWS Terraform Cost Analyzer - Easy Run Script
+# Copyright (c) 2025 Yeshwanth L M
+# Licensed under the MIT License. See LICENSE file for details.
 
 set -e
 

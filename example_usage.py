@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """
 Example usage of the Terraform Cost Analyzer
+
+Copyright (c) 2025 Yeshwanth L M
+Licensed under the MIT License. See LICENSE file for details.
 """
 
 import os

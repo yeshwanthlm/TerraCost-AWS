@@ -1,4 +1,6 @@
 # Simple Terraform configuration for cost analysis testing
+# Copyright (c) 2025 Yeshwanth L M
+# Licensed under the MIT License. See LICENSE file for details.
 
 terraform {
   required_providers {
