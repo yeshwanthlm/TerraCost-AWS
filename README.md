@@ -179,27 +179,33 @@ TerraCost-AWS/
 
 **Primary Cost: Amazon Bedrock API calls (Claude 3 Sonnet)**
 
+### Realistic Cost Calculation
+**Bedrock Pricing (Claude 3 Sonnet):**
+- Input tokens: $0.003 per 1,000 tokens
+- Output tokens: $0.015 per 1,000 tokens
+
+**Actual Token Usage per Resource:**
+- Input: ~500-800 tokens (prompt + resource config)
+- Output: ~300-500 tokens (cost analysis response)
+- **Cost per resource: ~$0.003-0.005** (0.3-0.5 cents)
+
 ### Per Analysis Cost
-- **Small plan (3 resources)**: ~$0.07
-- **Medium plan (15 resources)**: ~$0.34  
-- **Large plan (50 resources)**: ~$1.13
+- **Small plan (3 resources)**: ~$0.01-0.02
+- **Medium plan (15 resources)**: ~$0.05-0.08  
+- **Large plan (50 resources)**: ~$0.15-0.25
 
 ### Cost for 10,000 Analyses
-- **Small plans**: $675
-- **Medium plans**: $3,375
-- **Large plans**: $11,250
+- **Small plans**: $100-200
+- **Medium plans**: $500-800
+- **Large plans**: $1,500-2,500
 
 ### Where Costs Come From
-1. **Bedrock API**: $0.003 per 1K input tokens + $0.015 per 1K output tokens
-2. **Per resource**: ~$0.0225 (2.25 cents) average
-3. **AWS Pricing API**: FREE (no charges)
-4. **Data transfer**: Negligible
+1. **Bedrock API calls** - Only cost component
+2. **AWS Pricing API** - FREE
+3. **Data transfer** - Negligible
 
 ### ROI Example
-If you save just 10% on a $10,000/month AWS bill:
-- **Savings**: $1,000/month
-- **Tool cost**: ~$100/month (moderate usage)
-- **Net benefit**: $900/month
+Even at higher usage (large plans), monthly cost is typically $50-150, while potential AWS savings from optimization can be $1,000+ per month.
 
 ## Troubleshooting
 
