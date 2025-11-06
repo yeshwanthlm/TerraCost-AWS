@@ -383,7 +383,8 @@ Respond in JSON format:
 def main():
     """Main function to run the cost analyzer"""
     parser = argparse.ArgumentParser(
-        description="Analyze AWS costs for Terraform plans using Bedrock AI"
+        description="Analyze AWS costs for Terraform plans using Bedrock AI",
+        epilog="Note: This tool uses Amazon Bedrock API (~$0.0225 per resource analyzed)"
     )
     parser.add_argument(
         'tfplan_file',
@@ -403,6 +404,7 @@ def main():
         action='store_true',
         help='Enable verbose logging'
     )
+
     
     args = parser.parse_args()
     
