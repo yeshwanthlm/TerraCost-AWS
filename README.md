@@ -1,6 +1,6 @@
-# AWS Terraform Cost Analyzer
+# TerraCost-AWS
 
-An intelligent cost estimation tool that analyzes Terraform plans and provides detailed AWS cost breakdowns using Amazon Bedrock AI.
+An intelligent AWS cost estimation tool that analyzes Terraform plans and provides detailed cost breakdowns using Amazon Bedrock AI.
 
 ## Features
 
@@ -22,11 +22,15 @@ An intelligent cost estimation tool that analyzes Terraform plans and provides d
 ## Installation
 
 ```bash
-# Clone or download the tool
-pip install -r requirements.txt
+# Clone the repository
+git clone https://github.com/yeshwanthlm/TerraCost-AWS.git
+cd TerraCost-AWS
 
-# Or install as a package
-pip install -e .
+# Run setup script
+./setup.sh
+
+# Or manual installation
+pip install -r requirements.txt
 ```
 
 ## AWS Setup
@@ -65,6 +69,9 @@ terraform plan -out=myplan.tfplan
 
 # Analyze costs
 python terraform_cost_analyzer.py myplan.tfplan
+
+# Or use the convenience script
+./analyze_costs.sh myplan.tfplan
 ```
 
 ### Advanced Usage
@@ -77,40 +84,45 @@ python terraform_cost_analyzer.py myplan.tfplan --region us-west-2 --output cost
 python terraform_cost_analyzer.py myplan.tfplan --verbose
 ```
 
+### Example with Provided Configuration
+
+```bash
+# Use the example Terraform configuration
+cd terraform
+terraform init
+terraform plan -out=example.tfplan
+
+# Analyze the example
+cd ..
+./analyze_costs.sh terraform/example.tfplan
+```
+
 ### Example Output
 
 ```
 ================================================================================
 AWS TERRAFORM COST ANALYSIS REPORT
 ================================================================================
-Generated on: 2024-11-06 10:30:45
+Generated on: 2025-11-06 12:06:22
 Region: us-east-1
 
 COST SUMMARY
 ----------------------------------------
-Total Estimated Monthly Cost: $245.67
+Total Estimated Monthly Cost: $8.47
 
 RESOURCE COST BREAKDOWN
 ----------------------------------------
-aws_instance.web_server: $72.00/month
-  - Compute: $65.00
-  - Storage: $7.00
-aws_rds_instance.database: $156.50/month
-  - Compute: $140.00
-  - Storage: $16.50
+aws_instance.ubuntu_server: $8.47/month
+  - Compute: $8.47
+aws_security_group.allow_all: $0.00/month
 
 HIDDEN COSTS
 ----------------------------------------
-• Data Transfer: $12.50/month
-  Outbound data transfer from EC2 to internet
-• NAT Gateway Processing: $4.67/month
-  Data processing charges for NAT Gateway
-
-COST OPTIMIZATION RECOMMENDATIONS
-----------------------------------------
-1. Consider using Reserved Instances for 40% savings on EC2
-2. Enable GP3 storage for better price/performance ratio
-3. Use CloudFront to reduce data transfer costs
+• Data Transfer: $0.00/month
+  Inbound data transfer is free, but outbound data transfer is charged based on usage
+• Monitoring and Logging: $0.00/month
+  AWS CloudWatch monitoring and logging charges apply based on usage
+Total Hidden Costs: $0.00/month
 ```
 
 ## Configuration
@@ -142,7 +154,26 @@ Edit `config.py` to customize:
 - EKS Clusters
 - CloudFront Distributions
 - ElastiCache Clusters
+- Security Groups
 - And many more...
+
+## Project Structure
+
+```
+TerraCost-AWS/
+├── terraform_cost_analyzer.py    # Main analyzer tool
+├── config.py                     # Configuration settings
+├── requirements.txt              # Python dependencies
+├── setup.sh                      # Setup script
+├── analyze_costs.sh              # Convenience script
+├── Makefile                      # Build commands
+├── terraform/
+│   └── example.tf               # Example Terraform config
+├── test_analyzer.py             # Unit tests
+├── example_usage.py             # Usage examples
+├── USAGE_GUIDE.md              # Detailed usage guide
+└── README.md                   # This file
+```
 
 ## Troubleshooting
 
